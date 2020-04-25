@@ -1,0 +1,6 @@
+Name = ""
+resourceGroup = ""
+location = ""
+keyvaultID = ""
+clientID = ""
+clientSecret = ""
