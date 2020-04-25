@@ -1,0 +1,19 @@
+# Note
+# Authentication with AZ CLI using `azure login` will allow
+# you to deploy resources to Azure.
+
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: Create an Azure Container Instance
+    azure_rm_containerinstance:
+      resource_group: Dev2
+      name: nginxwebappgroup
+      containers:
+        - name: nginxwebapp
+          image: nginx:latest
+          ports:
+            - 80
+            - 443
+      
