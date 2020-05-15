@@ -49,12 +49,7 @@ variable "vm_size" {
 
 variable "os" {
     description = "OS image to deploy"
-    type = object({
-        publisher = string
-        offer = string
-        sku = string
-        version = string
-  })
+    type = string
 }      
 
 variable "disk_size_gb" {

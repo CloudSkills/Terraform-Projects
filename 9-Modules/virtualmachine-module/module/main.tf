@@ -110,10 +110,10 @@ resource "azurerm_network_interface" "nic" {
 
 
    storage_image_reference {
-     publisher = var.os.publisher
-     offer     = var.os.offer
-     sku       = var.os.sku
-     version   = var.os.version
+     publisher = "MicrosoftWindowsServer"
+     offer     = "WindowsServer"
+     sku       = var.os
+     version   = "latest"
    }
 
    os_profile {
