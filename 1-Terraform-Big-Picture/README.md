@@ -12,5 +12,5 @@ Benefits of IaC, we gain the following abilities for ALL infrastructure componen
 What happens when we use Infrastructure as Code in a team setting?
 
 - **Removes Specialty In Provisioning** - If deploying a SQL server is automated, we no longer need an engineer specialized in SQL to deploy it every time. This task can be handed to other teams, freeing up time.
--**Consistency**- Automated deployments of infrastructure enforce infrastructure to always be deployed with the same configuration, reducing time spent on troubleshooting due to one off configurations.
--**Visibility** - Teams can see each others infrastructure code in one place. No longer need access to the network or security team's equipment to see how something is configured. Just look at their Read-Only access code.
+- **Consistency**- Automated deployments of infrastructure enforce infrastructure to always be deployed with the same configuration, reducing time spent on troubleshooting due to one off configurations.
+- **Visibility** - Teams can see each others infrastructure code in one place. No longer need access to the network or security team's equipment to see how something is configured. Just look at their Read-Only access code.
