@@ -21,7 +21,7 @@ resource "azurerm_virtual_network" "vnet" {
 
 # Create subnet
 resource "azurerm_subnet" "subnet" {
-  name                 = "snet-dev-westus2-001"
+  name                 = "snet-dev-westus2-001 "
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefix       = "10.0.0.0/24"
@@ -43,13 +43,13 @@ resource "azurerm_network_security_group" "nsg" {
   resource_group_name = azurerm_resource_group.rg.name
 
   security_rule {
-    name                       = "HTTP"
+    name                       = "SSH"
     priority                   = 1001
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "80"
+    destination_port_range     = "22"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
@@ -76,7 +76,7 @@ resource "azurerm_virtual_machine" "vm" {
   location              = "westus2"
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]
-  vm_size               = "Standard_B2s"
+  vm_size               = "Standard_B1s"
 
   storage_os_disk {
     name              = "stvmpmvmterraformos"
@@ -86,9 +86,9 @@ resource "azurerm_virtual_machine" "vm" {
   }
 
   storage_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2019-Datacenter"
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04.0-LTS"
     version   = "latest"
   }
 
@@ -97,25 +97,8 @@ resource "azurerm_virtual_machine" "vm" {
     admin_username = "terrauser"
     admin_password = "Password1234!"
   }
-  os_profile_windows_config{
-    provision_vm_agent = true
+
+  os_profile_linux_config {
+    disable_password_authentication = false
   }
-
-  #Add Virtual Machine to Azure DSC after deployment.
-  provisioner "local-exec" {
-    command = <<EOT
-        $params = @{
-        AutomationAccountName = "aa-terraformdemo"
-        AzureVMName = "${azurerm_virtual_machine.vm.name}"
-        ResourceGroupName = "rg-terraformaa"
-        NodeConfigurationName = "WebserverConfig.vmterraform"
-        azureVMLocation = "${azurerm_resource_group.rg.location}"
-        AzureVMResourceGroup = "${azurerm_resource_group.rg.name}"
-        }
-        Register-AzAutomationDscNode @params 
-   EOT
-   interpreter = ["pwsh", "-Command"]
-  }
-
-
 }
