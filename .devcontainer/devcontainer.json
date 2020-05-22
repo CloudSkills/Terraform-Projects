@@ -1,0 +1,14 @@
+nes (10 sloc) 314 Bytes
+{
+
+  
+    // Install ESLint and Peacock extensions
+    "extensions": [
+      "ms-vscode.go",
+      "shd101wyy.markdown-preview-enhanced",
+      "mauve.terraform"
+    ],
+  
+    // Run Bash script in .devcontainer directory
+    "postCreateCommand": "/bin/bash ./.devcontainer/post-create.sh > ~/post-create.log",
+  }
