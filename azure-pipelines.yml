@@ -9,7 +9,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: 'Terraform-Projects/12-CI-CD-Pipelines/Azure-Devops/AKS'
+    workingDirectory: '12-CI-CD-Pipelines/Azure-Devops/AKS'
     commandOptions: '-var="Name=$(Name)" -var="resourceGroup=$(resourceGroup)" -var="clientID=$(clientID)" -var="clientSecret=$(clientSecret)" -var="location=$(location)"'
     backendServiceArm: 'Mike-Pay-As-You-Go (220284d2-6a19-4781-87f8-5c564ec4fec9)'
     backendAzureRmResourceGroupName: 'Dev10'
@@ -21,6 +21,6 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    workingDirectory: 'Terraform-Projects/12-CI-CD-Pipelines/Azure-Devops/AKS'
+    workingDirectory: '12-CI-CD-Pipelines/Azure-Devops/AKS'
     commandOptions: '-var="Name=$(Name)" -var="resourceGroup=$(resourceGroup)" -var="clientID=$(clientID)" -var="clientSecret=$(clientSecret)" -var="location=$(location)"'
     environmentServiceNameAzureRM: 'Mike-Pay-As-You-Go (220284d2-6a19-4781-87f8-5c564ec4fec9)'
