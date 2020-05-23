@@ -67,10 +67,5 @@ resource "azurerm_public_ip" "cloudskills-publicIP" {
 
   tags = {
     environment = "Dev"
-  }
-}
-
-  tags = {
-    environment = "staging"
-  }
-}
+        }   
+    }
