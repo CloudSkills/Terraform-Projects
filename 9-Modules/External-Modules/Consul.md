@@ -1,0 +1,2 @@
+## What is Hashicorp Consul?
+HashiCorp Consul is an open source tool that solves these new complexities by providing service discovery, health checks, load balancing, a service graph, mutual TLS identity enforcement, and a configuration key-value store. These features make Consul an ideal control plane for a service mesh.
