@@ -1,12 +1,9 @@
-nes (10 sloc) 314 Bytes
 {
 
   
     // Install ESLint and Peacock extensions
     "extensions": [
-      "ms-vscode.go",
-      "shd101wyy.markdown-preview-enhanced",
-      "mauve.terraform"
+      "shd101wyy.markdown-preview-enhanced"
     ],
   
     // Run Bash script in .devcontainer directory

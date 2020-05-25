@@ -11,4 +11,3 @@ resource "azurerm_resource_group" "rg" {
       Environment = "Terraform Demo"
     }
 }
-
