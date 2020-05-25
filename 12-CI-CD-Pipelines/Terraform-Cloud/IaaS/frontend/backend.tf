@@ -4,7 +4,7 @@ terraform {
     organization = "LukeLab"
 
     workspaces {
-      name = "Azure-Prod-Lukelab-frontend-test"
+      name = "Azure-Prod-Lukelab-frontend"
     }
   }
 }
