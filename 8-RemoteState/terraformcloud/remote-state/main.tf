@@ -1,7 +1,7 @@
 #Set up remote state
 terraform {
   backend "remote" {
-    organization = "lukelabdemo"
+    organization = "LukeLab"
 
     workspaces {
       name = "terraformdemo"
