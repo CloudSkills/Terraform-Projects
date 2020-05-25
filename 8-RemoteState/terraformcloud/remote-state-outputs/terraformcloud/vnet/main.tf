@@ -1,9 +1,16 @@
+#configure azurerm provider
+provider "azurerm" {
+  version = "1.38"
+}
+
+
+#Data source for resource group information
 data "terraform_remote_state" "terraformdemo" {
   backend = "remote"
   config = {
-    organization = "lukelabdemo"
+    organization = "LukeLab"
     workspaces = {
-      name = "terraformdemo"
+      name = "terraformdemo-rg"
     }
   }
 }
