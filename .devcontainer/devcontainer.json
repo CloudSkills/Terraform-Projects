@@ -3,7 +3,8 @@
   
     // Install ESLint and Peacock extensions
     "extensions": [
-      "shd101wyy.markdown-preview-enhanced"
+      "shd101wyy.markdown-preview-enhanced",
+      "mauve.terraform"
     ],
   
     // Run Bash script in .devcontainer directory
