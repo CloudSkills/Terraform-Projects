@@ -1,0 +1,13 @@
+# Note
+# Authentication with AZ CLI using `azure login` will allow
+# you to deploy resources to Azure.
+
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: cloudskills-storage
+    azure_rm_storageaccount:
+      resource_group: Dev10
+      name: cloudskills93
+      type: Standard_GRS
