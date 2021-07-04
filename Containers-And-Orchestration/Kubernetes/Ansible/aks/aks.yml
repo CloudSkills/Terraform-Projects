@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: Create an AKS cluster
+    azure_rm_aks:
+      name: techtarget01
+      location: eastus
+      resource_group: Dev2
+      dns_prefix: techtargetclus
+      kubernetes_version: 1.15.10
+      linux_profile:
+        admin_username: azureaks
+        ssh_key: your_ssh_key
+      service_principal:
+        client_id: "your_client_id"
+        client_secret: "your_client_secret"
+      agent_pool_profiles:
+        - name: default
+          count: 2
+          vm_size: Standard_D2_v2
+      tags:
+        Environment: Dev
