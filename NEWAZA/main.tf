@@ -32,7 +32,7 @@ resource "azurerm_public_ip" "mypublicIP" {
   ip_version          = "IPv4"
 }
 
-resource "azurerm_network_security_group" "nsg" {
+resource "azurerm_network_security_group" "main" {
   name                = "mysecureNSG"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
@@ -49,7 +49,7 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
 
-resource "azurerm_virtual_machine" "cicd" {
+resource "azurerm_virtual_machine" "main" {
   name                  = "DEVOPS"
   location              = azurerm_resource_group.main.location
   resource_group_name   = azurerm_resource_group.main.name
