@@ -17,17 +17,7 @@ variable "network_interface_id" {
     type = string
 }
 
-variable "PublicIP" {
+variable "publicIP" {
     type = string
     description = "name of Pubic IP"
-}
-
-variable "SubnetName" {
-    type = string
-    description = "name of Subnet"
-}
-
-variable "VirtualNet" {
-    type = string
-    description = "VirtualNet"
 }
