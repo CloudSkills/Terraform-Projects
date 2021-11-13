@@ -11,21 +11,21 @@ resource "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_virtual_network" "main" {
-  name                = var.VirtualNet
+  name                = "guanaVnet"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   address_space       = ["10.0.0.0/16"]
 }
 
 resource "azurerm_subnet" "main" {
-  name                 = var.SubnetName
+  name                 = "guanaSubnet"
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefix       = "10.0.1.0/24"
 }
 
 resource "azurerm_public_ip" "mypublicIP" {
-  name                = var.PublicIP
+  name                = var.publicIP
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   allocation_method   = "Static"
